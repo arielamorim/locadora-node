@@ -1,29 +1,20 @@
 const express = require('express');
-
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUI = require('swagger-ui-express');
+const mongoose = require('mongoose');
 
 const app = express();
-
-const port = 5000;
+const port = 3000;
 
 // Middlewares
 app.use(express.json());
-/**
- * @swagger
- * /customers
- *   get:
- *     description: get some stuff
- *     responses: 
- *       200:
- *         description: success
- */
-app.get('/customers', (req, res) => {
-    res.send('Customers results');
-});
 
-app.get('/login', (req, res) => {
-    
+// MongoDB connection
+const mongo = "mongodb+srv://zorg:6WHFQAqrSnupFWjo@cluster0.dzt5c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+mongoose.connect(mongo, {useNewUrlParser: true, useUnifiedTopology: true}).then(result => app.listen(port)).catch(err => console.log(err));
+
+
+
+app.get('/movies', (req, res) => {
+    res.send('Customers results');
 });
 
 app.listen(port, () => {
