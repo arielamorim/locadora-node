@@ -1,0 +1,26 @@
+POST http://localhost:3000/movies/create
+Content-Type: application/json
+
+{
+    "title": "Godfather",
+    "director": "Francis Coppola",
+    "price": "5",
+    "stock": "5"
+}
+
+### necessario ter a extensão REST Client no vscode
+GET http://localhost:3000/movies
+
+###
+DELETE http://localhost:3000/movies/613eb1a16b9dbb2664a760d8
+
+###
+PUT http://localhost:3000/movies/update
+Content-Type: application/json
+
+{
+    "id": "613eb5d0cbae2ad15581c685",
+    "update": {
+        "title": "interestelar"
+    }
+}

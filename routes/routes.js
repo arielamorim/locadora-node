@@ -7,5 +7,7 @@ const router = express.Router();
 // Route to controllers
 router.post('/create', moviesController.movie_create);
 router.get('/', moviesController.movie_list);
+router.delete('/:id', moviesController.movie_delete);
+router.put('/update', moviesController.movie_update);
 
 module.exports = router;
