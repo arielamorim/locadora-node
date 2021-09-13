@@ -21,6 +21,9 @@ const rentSchema = new Schema({
     returnDate: { 
         type: Date,  
     },
+    rentStatus: {
+        type: String,
+    }
 });
 
 const Rent = mongoose.model('Rent', rentSchema);

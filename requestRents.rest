@@ -20,7 +20,18 @@ Content-Type: application/json
 {
 	"id": "613ecc341b02cdb8a62e853d", 
     "update": {
-        "idUser": "123456"
+        "currentPrice": "30"
+    }
+}
+
+###
+PUT http://localhost:3000/rents/returnMovies
+Content-Type: application/json
+
+{
+	"id": "613ecc341b02cdb8a62e853d", 
+    "update": {
+        "currentPrice": "30"
     }
 }
 
