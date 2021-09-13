@@ -1,6 +1,5 @@
 const Movie = require('../models/movie');
 
-// CRUD:
 // Create
 const movie_create = (req, res) => {
     console.log('movie_create');

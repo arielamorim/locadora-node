@@ -1,0 +1,28 @@
+### necessario ter a extensão REST Client no vscode
+
+### RENTS
+POST http://localhost:3000/rents/create
+Content-Type: application/json
+
+{
+    "idUser": "123",
+    "idMovies": ["1","2","3"],
+	"originalPrice": "20"
+}
+
+###
+GET http://localhost:3000/rents
+
+###
+PUT http://localhost:3000/rents/update
+Content-Type: application/json
+
+{
+	"id": "613ecc341b02cdb8a62e853d", 
+    "update": {
+        "idUser": "123456"
+    }
+}
+
+###
+DELETE http://localhost:3000/rents/613ecbc71b02cdb8a62e8532

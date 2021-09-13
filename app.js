@@ -1,7 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const movieRoutes = require('./routes/routes');
+const moviesRoutes = require('./routes/moviesRoutes');
+const rentsRoutes = require('./routes/rentsRoutes');
 const app = express();
 const port = 3000;
 
@@ -23,4 +24,7 @@ app.get('/', (req, res) => {
 });
 
 // Movies
-app.use('/movies', movieRoutes);
+app.use('/movies', moviesRoutes);
+
+// Rents
+app.use('/rents', rentsRoutes);
