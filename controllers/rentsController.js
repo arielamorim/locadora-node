@@ -25,7 +25,6 @@ const rent_list = (req, res) => {
 
 // Update
 const rent_update = (req, res) => {
-    console.log('updating -> ', req.body);
     Rent.findByIdAndUpdate(req.body.id, req.body.update, {new: true})
     .then(result => {
         res.status(200);
@@ -47,6 +46,7 @@ const rent_delete = (req, res) => {
 
 // Update a rent by id, and return final price
 const rent_return_movies = (req, res) => {
+    // Calculate final price
     const newRent = rentHelper.calcPrice(req.body.data);
     
     Rent.findByIdAndUpdate(req.body.id, newRent, {new: true})

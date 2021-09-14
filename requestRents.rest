@@ -1,6 +1,7 @@
 ### necessario ter a extensão REST Client no vscode
 
 ### RENTS
+### Create
 POST http://localhost:3000/rents/create
 Content-Type: application/json
 
@@ -10,10 +11,10 @@ Content-Type: application/json
 	"originalPrice": "20.00"
 }
 
-###
+### List
 GET http://localhost:3000/rents
 
-###
+### Update
 PUT http://localhost:3000/rents/update
 Content-Type: application/json
 
@@ -24,7 +25,7 @@ Content-Type: application/json
     }
 }
 
-###
+### Finish a rent
 PUT http://localhost:3000/rents/returnMovies
 Content-Type: application/json
 
@@ -33,5 +34,5 @@ Content-Type: application/json
     "data": {"rentDate": "2021-09-14T05:44:00.897Z", "originalPrice": "20.00"}
 }
 
-###
+### Delete
 DELETE http://localhost:3000/rents/61402d366b9962d784661cfc

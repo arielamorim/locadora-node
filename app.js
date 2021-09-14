@@ -10,7 +10,7 @@ const port = 3000;
 app.use(express.json());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 // MongoDB connection
 const mongo = "mongodb+srv://zorg:6WHFQAqrSnupFWjo@cluster0.dzt5c.mongodb.net/videostore";
