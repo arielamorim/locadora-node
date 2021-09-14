@@ -45,17 +45,17 @@ const rent_delete = (req, res) => {
     });
 }
 
-// Update rents for the user, and return final price
+// Update a rent by id, and return final price
 const rent_return_movies = (req, res) => {
-    console.log('aququiui');
-    rentHelper.calcPrice();
-    // Rent.findByIdAndUpdate(req.body.id, rentHelper(update), {new: true})
-    // .then(result => {
-    //     res.status(200);
-    //     res.send(result);
-    // }).catch(err => {
-    //     console.log(err);
-    // });
+    const newRent = rentHelper.calcPrice(req.body.data);
+    
+    Rent.findByIdAndUpdate(req.body.id, newRent, {new: true})
+    .then(result => {
+        res.status(200);
+        res.send(result);
+    }).catch(err => {
+        console.log(err);
+    });
 }
 
 module.exports = {

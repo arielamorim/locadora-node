@@ -23,7 +23,8 @@ const rentSchema = new Schema({
     },
     rentStatus: {
         type: String,
-    }
+        default: "open"
+    },
 });
 
 const Rent = mongoose.model('Rent', rentSchema);

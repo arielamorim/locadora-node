@@ -7,7 +7,7 @@ Content-Type: application/json
 {
     "idUser": "123",
     "idMovies": ["1","2","3"],
-	"originalPrice": "20"
+	"originalPrice": "20.00"
 }
 
 ###
@@ -29,11 +29,9 @@ PUT http://localhost:3000/rents/returnMovies
 Content-Type: application/json
 
 {
-	"id": "613ecc341b02cdb8a62e853d", 
-    "update": {
-        "currentPrice": "30"
-    }
+	"id": "614036a0040d51be93d1b6b4",
+    "data": {"rentDate": "2021-09-14T05:44:00.897Z", "originalPrice": "20.00"}
 }
 
 ###
-DELETE http://localhost:3000/rents/613ecbc71b02cdb8a62e8532
+DELETE http://localhost:3000/rents/61402d366b9962d784661cfc
