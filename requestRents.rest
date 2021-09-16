@@ -4,15 +4,19 @@
 ### Create
 POST http://localhost:3000/rents/create
 Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1NjM0NywiZXhwIjoxNjMxNzU5OTQ3fQ.OlPi_qRWfK3O6QEAuKFDfI1ssvx4IposcTeZ8vVAX-s
 
 {
-    "idUser": "123",
-    "idMovies": ["1","2","3"],
-	"originalPrice": "20.00"
+    "idUser": "6546546",
+    "idMovies": ["613eac2263be4cfb259e8309"],
+	"originalPrice": "10.00"
 }
 
 ### List
 GET http://localhost:3000/rents
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1NDM0MCwiZXhwIjoxNjMxNzU3OTQwfQ.HD0pMVXWUXcWYo4rD4RGGYKFEmLgtyF2cD3Jhg23byI
+
+
 
 ### Update
 PUT http://localhost:3000/rents/update
@@ -26,13 +30,15 @@ Content-Type: application/json
 }
 
 ### Finish a rent
-PUT http://localhost:3000/rents/returnMovies
+PUT http://localhost:3000/rents/rentEnd
 Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1MjYzNiwiZXhwIjoxNjMxNzU2MjM2fQ.SWgy-sZAVNhejRiakD8iW_QfqA5WXrGFvNllDJ0UAqA
 
 {
-	"id": "614036a0040d51be93d1b6b4",
-    "data": {"rentDate": "2021-09-14T05:44:00.897Z", "originalPrice": "20.00"}
+	"id": "6142951700b21280d70e2a18",
+    "data": {"rentDate": "2021-09-16T00:51:35.541Z", "originalPrice": "10.00"}
 }
 
 ### Delete
-DELETE http://localhost:3000/rents/61402d366b9962d784661cfc
+DELETE http://localhost:3000/rents/61429bf077314dd2ad748bd2
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1MjYzNiwiZXhwIjoxNjMxNzU2MjM2fQ.SWgy-sZAVNhejRiakD8iW_QfqA5WXrGFvNllDJ0UAqA

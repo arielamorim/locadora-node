@@ -25,6 +25,9 @@ const rentSchema = new Schema({
         type: String,
         default: "open"
     },
+    rentDeadline: {
+        type: Date
+    }
 });
 
 const Rent = mongoose.model('Rent', rentSchema);

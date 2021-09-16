@@ -1,33 +1,34 @@
-const moment = require('moment');
 const money = require('money-math');
+const dateFns = require('date-fns');
 
-const calcPrice = (rent) => {
+const calcPrice = (rent, status, update = true) => {
 
-    const startTime = moment(new Date(rent.rentDate), 'DD-MM-YYYY hh:mm:ss');
-    const endTime = moment(new Date(), 'DD-MM-YYYY hh:mm:ss');
-    // Minutes diff
-    let minutesDiff = endTime.diff(startTime, 'minutes');
-    if (minutesDiff >= 1) {
-        // Start extra count
-        startTime.add(1, 'm');
-        // Get extra seconds
-        let extraSeconds = endTime.diff(startTime, 'seconds');
+    let currentPrice = rent.originalPrice;
+    console.log("diff -> ", dateFns.differenceInMinutes(new Date(), dateFns.parseISO(rent.rentDate)));
+    // Calculate Date
+    if (dateFns.differenceInMinutes(new Date(), dateFns.parseISO(rent.rentDate)) >= 1) {
+        let extraSeconds = dateFns.differenceInSeconds(new Date(), dateFns.parseISO(rent.rentDate));
         // Get extra money
         let percent = extraSeconds / 10;
+        console.log("AQUIIII -> ", percent);
         const extraMoney = money.percent(percent.toString() + "0.00", rent.originalPrice);
-        let currentPrice = money.add(rent.originalPrice, extraMoney);
+        currentPrice = money.add(rent.originalPrice, extraMoney);
         // Return info to update
-        return {
-            "currentPrice": currentPrice,
-            "returnDate": new Date(),
-            "rentStatus": "closed" 
-        };
-    } else {
-        return {
-            "currentPrice": rent.originalPrice,
-            "returnDate": new Date(),
-            "rentStatus": "closed"
+        if (update) {
+            return {
+                "currentPrice": currentPrice,
+                "returnDate": status === "closed" ? new Date() : "-",
+                "rentStatus": status,
+                "rentDeadline": dateFns.addMinutes(dateFns.parseISO(rent.rentDate), 1)
+            };
+        } else {
+            rent.currentPrice = currentPrice,
+                rent.returnDate = status === "closed" ? new Date() : "-",
+                rent.rentStatus = status,
+                rent.rentDeadline = dateFns.addMinutes(dateFns.parseISO(rent.rentDate), 1)
+            return rent;
         }
+
     }
 }
 

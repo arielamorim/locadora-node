@@ -1,0 +1,32 @@
+### necessario ter a extensão REST Client no vscode
+
+### MOVIES
+### Create
+POST http://localhost:3000/movies/create
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTY2NjI0NCwiZXhwIjoxNjMxNjY2NTQ0fQ.uTKkTMEkkhkRp1-j-MNgNbh2MT6WhvcP5tNzlacjmHw
+
+{
+    "title": "Godfather 2",
+    "director": "Francis Coppola",
+    "price": "5",
+    "stock": "5"
+}
+
+### List
+GET http://localhost:3000/movies
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1NDM0MCwiZXhwIjoxNjMxNzU3OTQwfQ.HD0pMVXWUXcWYo4rD4RGGYKFEmLgtyF2cD3Jhg23byI
+### Update
+PUT http://localhost:3000/movies/update
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1NDI0OCwiZXhwIjoxNjMxNzU3ODQ4fQ.tggHT5USfM9QSzPhu4GzQb9Fc2DPkVG9hBNIlUpu8VA
+
+{
+    "id": "613eb5d0cbae2ad15581c685",
+    "update": {
+        "title": "interestelar"
+    }
+}
+
+### Delete
+DELETE http://localhost:3000/movies/613eb1a16b9dbb2664a760d8

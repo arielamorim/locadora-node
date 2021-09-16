@@ -1,0 +1,21 @@
+###
+
+POST http://localhost:3000/users/create
+Content-Type: application/json
+
+{
+    "userName": "John",
+    "userPass": "12345",
+    "userAdmin": "true",
+    "userLogin": "john_silva"
+}
+
+### Retorna Token
+
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "userLogin": "john_silva",
+    "userPass": "12345"
+}
