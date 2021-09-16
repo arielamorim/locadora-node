@@ -2,7 +2,6 @@ const express = require('express');
 
 // Initialize Router
 const router = express.Router();
-
 const userRoutes = require('./userRoutes');
 const movieRoutes = require('./movieRoutes');
 const rentRoutes = require('./rentRoutes');

@@ -4,10 +4,10 @@ const outputFile = './swagger_output.json'
 const endpointsFiles = ['./routes/routes.js']
 const doc = {
     securityDefinitions: {
-        APIKeyHeader: {
+        apiKeyAuth: {
             type: 'apiKey',
             in: 'header',
-            name: 'X-API-Key',
+            name: 'auth-token',
             description: 'Token gerado pelo login'
         },
     }

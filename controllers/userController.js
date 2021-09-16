@@ -22,6 +22,10 @@ const user_create = (req, res) => {
 
 // Read
 const user_list = (req, res) => {
+    /* #swagger.security = [{
+        "apiKeyAuth": []
+    }] */
+
     User.find().sort({ createdAt: -1 }).then(result => {
         res.send(result);
     }).catch(err => {
@@ -31,6 +35,10 @@ const user_list = (req, res) => {
 
 // Update
 const user_update = (req, res) => {
+    /* #swagger.security = [{
+        "apiKeyAuth": []
+    }] */
+
     User.findByIdAndUpdate(req.body.id, req.body.update, {new: true})
     .then(result => {
         res.status(200);
@@ -42,6 +50,10 @@ const user_update = (req, res) => {
 
 // Delete
 const user_delete = (req, res) => {
+    /* #swagger.security = [{
+        "apiKeyAuth": []
+    }] */
+
     const id = req.params.id;
     User.findByIdAndDelete(id).then(result => {
         res.status(201);

@@ -16,6 +16,7 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQ
 ### List
 GET http://localhost:3000/movies
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1NDM0MCwiZXhwIjoxNjMxNzU3OTQwfQ.HD0pMVXWUXcWYo4rD4RGGYKFEmLgtyF2cD3Jhg23byI
+
 ### Update
 PUT http://localhost:3000/movies/update
 Content-Type: application/json

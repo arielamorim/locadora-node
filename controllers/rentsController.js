@@ -4,23 +4,22 @@ const rentHelper = require('../helpers/rent');
 
 // Create
 const rentCreate = (req, res) => {
-    console.log('criando rent -> ', req.body);
-
+    /* #swagger.security = [{
+        "apiKeyAuth": []
+    }] */
     const rent = new Rent(req.body);
 
     rent.save().then(result => {
         // Update movie's stock
         result.idMovies.forEach(id => {
-            
-            console.log("id MOVIES -> ", id);
+
             // Find
             Movie.findById(id, (err, movie) => {
-                
+
                 if (err) {
                     console.log(err);
                 }
-                
-                console.log("MOVIE -> ", movie);
+
                 // Update
                 Movie.updateOne({ _id: movie._id }, { stock: (parseInt(movie.stock) - 1).toString() })
                     .then(rslt => {
@@ -39,10 +38,13 @@ const rentCreate = (req, res) => {
 
 // List
 const rentList = (req, res) => {
+    /* #swagger.security = [{
+        "apiKeyAuth": []
+    }] */
+
     Rent.find().sort({ createdAt: -1 }).then(result => {
         // update price
         result.forEach(rst => {
-            console.log(rentHelper.calcPrice(rst, "open", false));
             rst.info = rentHelper.calcPrice(rst, "open", false);
         });
         res.send(result);
@@ -53,6 +55,10 @@ const rentList = (req, res) => {
 
 // Update
 const rentUpdate = (req, res) => {
+    /* #swagger.security = [{
+        "apiKeyAuth": []
+    }] */
+
     Rent.findByIdAndUpdate(req.body.id, req.body.update, { new: true })
         .then(result => {
             res.status(200);
@@ -64,6 +70,10 @@ const rentUpdate = (req, res) => {
 
 // Delete
 const rentDelete = (req, res) => {
+    /* #swagger.security = [{
+        "apiKeyAuth": []
+    }] */
+
     Rent.findOneAndDelete(req.params.id)
         .then(result => {
             res.send(result);
@@ -74,11 +84,36 @@ const rentDelete = (req, res) => {
 
 // Update a rent by id, and return final price
 const rentEnd = (req, res) => {
+    /* #swagger.security = [{
+        "apiKeyAuth": []
+    }] */
+
     // Calculate final price
     const newRent = rentHelper.calcPrice(req.body.data, "closed");
 
     Rent.findByIdAndUpdate(req.body.id, newRent, { new: true })
         .then(result => {
+
+            // Update movie's stock
+            result.idMovies.forEach(id => {
+
+                // Find
+                Movie.findById(id, (err, movie) => {
+
+                    if (err) {
+                        console.log(err);
+                    }
+
+                    // Update
+                    Movie.updateOne({ _id: movie._id }, { stock: (parseInt(movie.stock) + 1).toString() })
+                        .then(rslt => {
+                            console.log('estoque atualizado');
+                        }).catch(err => {
+                            console.log(err);
+                        });
+                });
+            });
+
             res.status(200);
             res.send(result);
         }).catch(err => {

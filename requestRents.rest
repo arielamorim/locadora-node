@@ -16,8 +16,6 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQ
 GET http://localhost:3000/rents
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1NDM0MCwiZXhwIjoxNjMxNzU3OTQwfQ.HD0pMVXWUXcWYo4rD4RGGYKFEmLgtyF2cD3Jhg23byI
 
-
-
 ### Update
 PUT http://localhost:3000/rents/update
 Content-Type: application/json
@@ -32,13 +30,13 @@ Content-Type: application/json
 ### Finish a rent
 PUT http://localhost:3000/rents/rentEnd
 Content-Type: application/json
-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1MjYzNiwiZXhwIjoxNjMxNzU2MjM2fQ.SWgy-sZAVNhejRiakD8iW_QfqA5WXrGFvNllDJ0UAqA
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1NDM0MCwiZXhwIjoxNjMxNzU3OTQwfQ.HD0pMVXWUXcWYo4rD4RGGYKFEmLgtyF2cD3Jhg23byI
 
 {
-	"id": "6142951700b21280d70e2a18",
-    "data": {"rentDate": "2021-09-16T00:51:35.541Z", "originalPrice": "10.00"}
+	"id": "6142a04d3f419a4e9848a527",
+    "data": {"rentDate": "2021-09-16T01:39:25.410Z", "originalPrice": "10.00"}
 }
 
 ### Delete
-DELETE http://localhost:3000/rents/61429bf077314dd2ad748bd2
-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1MjYzNiwiZXhwIjoxNjMxNzU2MjM2fQ.SWgy-sZAVNhejRiakD8iW_QfqA5WXrGFvNllDJ0UAqA
+DELETE http://localhost:3000/rents/6142a04d3f419a4e9848a527
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjoiNjE0MTMyOGQzZmRkZDQ1Y2IxNDJkZDA2IiwiaXNBZG1pbiI6dHJ1ZX0sImlhdCI6MTYzMTc1NjM0NywiZXhwIjoxNjMxNzU5OTQ3fQ.OlPi_qRWfK3O6QEAuKFDfI1ssvx4IposcTeZ8vVAX-s
